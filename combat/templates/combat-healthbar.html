@@ -1,0 +1,9 @@
+{{define "healthbar"}}
+<div class="relative bg-gray-500 w-50 h-10" style="width:150px">
+    <div class="absolute top-0 left-0 bg-{{if ge .PercentHealth 100}}green-500{{else if ge .PercentHealth 75}}yellow-500{{else if ge .PercentHealth 50}}orange-500{{else}}red-500{{end}} h-full"
+        style="width: {{if ge .PercentHealth 100}}100{{else}}{{.PercentHealth}}{{end}}%;"></div>
+    <div class="absolute inset-0 flex items-center justify-center text-white font-bold">
+        {{.Health}}/{{.MaxHealth}}
+    </div>
+</div>
+{{end}}

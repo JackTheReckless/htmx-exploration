@@ -1,0 +1,42 @@
+{{define "town-actions"}}
+<nav id="town-actions">
+    <ul class="list-disc pl-4">
+        <p class="font-bold text-lg mb-2">Navigation</p>
+        <li class="text-blue-500 cursor-pointer" hx-post="/sign-out" hx-target="#main-container">Go to sleep (Logout)
+        </li>
+
+        <p class="font-bold text-lg mt-4 mb-2">Town Gates</p>
+        <li class="text-blue-500 cursor-pointer" hx-get="/forest" hx-target="#main-container">Forest</li>
+        <li class="text-gray-500">Slay Other Players</li>
+
+        <p class="font-bold text-lg mt-4 mb-2">Honor Avenue</p>
+        <li class="text-gray-500">Bending Academy</li>
+        <li class="text-gray-500">Mission Headquarters</li>
+        <li class="text-gray-500">Battle Arena</li>
+
+        <p class="font-bold text-lg mt-4 mb-2">Mercantile</p>
+        <li class="text-gray-500">Weaponshop</li>
+        <li class="text-gray-500">Armorsmith</li>
+        <li class="text-gray-500">The Bank</li>
+        <li class="text-gray-500">The Stable</li>
+
+        <p class="font-bold text-lg mt-4 mb-2">Towering Halls</p>
+        <li class="text-gray-500">The Gardens</li>
+        <li class="text-gray-500">Clan Halls</li>
+        <li class="text-gray-500">Beggars Lane</li>
+
+        <p class="font-bold text-lg mt-4 mb-2">Info</p>
+        <li class="text-gray-500">F.A.Q.</li>
+        <li class="text-gray-500">Daily News</li>
+        <li class="text-gray-500">Privary Policy</li>
+        <li class="text-gray-500">Terms and Agreements</li>
+        <li class="text-gray-500">Rules of this Game</li>
+        <li class="text-gray-500">Disclaimer of this Game</li>
+        <li class="text-gray-500">Staff List</li>
+
+        <p class="font-bold text-lg mt-4 mb-2">Other</p>
+        <li class="text-gray-500">Account Info</li>
+        <li class="text-gray-500">Preferences</li>
+    </ul>
+</nav>
+{{end}}

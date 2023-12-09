@@ -1,0 +1,33 @@
+{{define "forest-actions"}}
+<nav id="forest-actions">
+    <ul class="list-disc pl-4">
+        <p class="font-bold text-lg mb-2">Navigation</p>
+        <li class="text-blue-500 cursor-pointer" hx-get="/town" hx-target="#main-container">Return to Town</li>
+
+        <p class="font-bold text-lg mt-4 mb-2">Fight</p>
+        <li class="text-blue-500 cursor-pointer" hx-get="/forest/search" hx-target="#main-container">Look for something
+            to kill</li>
+        <li class="text-gray-500">Go thrillseeking</li>
+
+        <p class="font-bold text-lg mt-4 mb-2">Special Missions</p>
+        <li class="text-gray-500">Search & Rescue</li>
+
+        <p class="font-bold text-lg mt-4 mb-2">Quick Actions</p>
+        <li class="text-gray-500">Seek out (till the end)</li>
+        <li class="text-gray-500">Thrillseeking (till the end)</li>
+        <li class="text-gray-500">Deposit Gols</li>
+
+        <p class="font-bold text-lg mt-4 mb-2">Heal</p>
+        <li class="text-gray-500">Visit the bathhouse</li>
+        <li class="text-gray-500">The Outhouse</li>
+
+        {{if .User.IsGameMaster}}
+        <div id="game-master-actions-forest" class="mt-4 mb-2 border-t">
+            <p class="font-bold text-lg text-pink-500">Game Master</p>
+
+            <li class="text-pink-200 cursor-pointer" value="full" hx-post="combat/user/heal">Heal</li>
+        </div>
+        {{end}}
+    </ul>
+</nav>
+{{end}}

@@ -1,0 +1,33 @@
+{{define "combat"}}
+<div class="container mx-auto mt-8" id="combat-container">
+
+    <!-- Three columns layout -->
+    <div class="grid grid-cols-5 gap-2">
+
+        <!-- Left column (Town Access/Interactions) -->
+        <div class="col-span-1">
+            {{if eq .Enemy.Health 0}}
+            {{template "forest-actions" .}}
+            {{else}}
+            {{template "combat-actions" .}}
+            {{end}}
+        </div>
+
+        <!-- Middle column (Town Information/User Interactions) -->
+        <div class="col-span-3">
+            {{template "combat-content" .}}
+        </div>
+
+        <!-- Right column (Player Information) -->
+        <div class="col-span-1">
+            {{template "user-info" .}}
+            {{if .User.IsGameMaster}}
+            {{template "game-master" .}}
+            {{end}}
+        </div>
+
+    </div>
+    <!-- End of three columns layout -->
+
+</div>
+{{end}}

@@ -1,0 +1,16 @@
+{{define "combat-log"}}
+<div class="flex flex-col items-center justify-center" hx-get="/combat/log" hx-trigger="combat-log from:body">
+    {{range .Combat}}
+    {{if eq .Type "dmg"}}
+    <div id="combat-{{.ID}}">
+        <div><span class="font-bold">{{.Name}}</span> attacked <span class="font-bold">{{.Target}}</span> for <span
+                class="text-red-500">{{.Amt}}</span></div>
+    </div>
+    {{else}}
+    <div id="combat-{{.ID}}">
+        <div><span class="font-bold">{{.Target}}</span> healed for <span class="text-green-500">{{.Amt}}</span></div>
+    </div>
+    {{end}}
+    {{end}}
+</div>
+{{end}}

@@ -1,0 +1,40 @@
+{{define "game-master"}}
+<div id="game-master">
+    <div class=" mt-4 mb-2  border-t">
+        <label class="font-bold text-pink-500">GM: Class Change</label>
+        <div class="flex items-center">
+            <input type="radio" id="airBender" name="class" value="airBender" {{if eq .User.Class "airBender"
+                }}checked{{end}} required hx-post="/user/class-change">
+            <label for="airBender" class="text-sm text-yellow-500 ml-2">Air Bender</label>
+        </div>
+        <div class="flex items-center">
+            <input type="radio" id="waterBender" name="class" value="waterBender" {{if eq .User.Class "waterBender"
+                }}checked{{end}} required hx-post="/user/class-change">
+            <label for="waterBender" class="text-sm text-sky-500 ml-2">Water Bender</label>
+        </div>
+        <div class="flex items-center">
+            <input type="radio" id="earthBender" name="class" value="earthBender" {{if eq .User.Class "earthBender"
+                }}checked{{end}} required hx-post="/user/class-change">
+            <label for="earthBender" class="text-sm text-green-500 ml-2">Earth Bender</label>
+        </div>
+        <div class="flex items-center">
+            <input type="radio" id="fireBender" name="class" value="fireBender" {{if eq .User.Class "fireBender"
+                }}checked{{end}} required hx-post="/user/class-change">
+            <label for="fireBender" class="text-sm text-red-500 ml-2">Fire Bender</label>
+        </div>
+    </div>
+    <div class=" mt-4 mb-2  border-t">
+        <label class="font-bold text-pink-500">GM: Stat Change</label>
+        <div class="my-1 flex items-center grid grid-cols-2 gap-1">
+            <label for="gmHealth" class="text-sm col-span-1">Temp Health</label>
+            <input type="number" id="gmHealth" name="Health" hx-post="/user/stat-change"
+                class="bg-gray-700 text-white text-sm col-span-1">
+        </div>
+        <div class="my-1 flex items-center grid grid-cols-2 gap-1">
+            <label for="gmStamina" class="text-sm col-span-1">Temp Stamina</label>
+            <input type="number" id="gmStamina" name="Stamina" hx-post="/user/stat-change"
+                class="bg-gray-700 text-white text-sm col-span-1">
+        </div>
+    </div>
+</div>
+{{end}}

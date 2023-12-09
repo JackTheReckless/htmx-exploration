@@ -1,0 +1,20 @@
+{{define "user-info"}}
+<div id="user-info" hx-get="/user/info" hx-trigger="user-change from:body">
+    <h2 class="text-2xl font-semibold mb-4">Character Info</h2>
+    <p>Player Name: {{.User.Name}}</p>
+    <p>Class: {{.User.Class}}</p>
+    <p>Class: {{.User.Level}}</p>
+    <p>Title: {{.User.Title}}</p>
+    <p>Health: {{.User.Health}}/{{.User.MaxHealth}}</p>
+    <p>Stamina: {{.User.Stamina}}/{{.User.MaxStamina}}</p>
+    <p>XP: {{.User.EXP}}</p>
+    <br />
+    <p>Strength: {{.User.Strength}}</p>
+    <p>Dexterity: {{.User.Dexterity}}</p>
+    <p>Constitution: {{.User.Constitution}}</p>
+    <p>Intelligence: {{.User.Intelligence}}</p>
+    <p>Wisdom: {{.User.Wisdom}}</p>
+    <p>Charisma: {{.User.Charisma}}</p>
+    <p>Luck: {{.User.Luck}}</p>
+</div>
+{{end}}

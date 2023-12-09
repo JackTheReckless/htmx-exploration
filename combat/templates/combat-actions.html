@@ -1,0 +1,52 @@
+{{define "combat-actions"}}
+<nav id="combat-actions" hx-get="/combat/actions" hx-trigger="class-change, user-change from:body">
+    <ul class="list-disc pl-4">
+        <li class="text-blue-500 cursor-pointer" hx-post="/combat/fight" hx-target="#main-container">Fight</li>
+        <li class="text-blue-500 cursor-pointer" hx-post="/combat/run" hx-target="#main-container">Run</li>
+
+        <p class="font-bold text-lg mt-4 mb-2">Automatic Fighting</p>
+        <li class="text-gray-500">For 5 Rounds</li>
+        <li class="text-gray-500">Until End</li>
+
+        <p class="font-bold text-lg mt-4 mb-2">Stamina
+            ({{.User.Stamina}}/{{.User.MaxStamina}})</p>
+        {{if eq .User.Class "airBender"}}
+        <p class="my-1 text-yellow-500 font-semibold">Air Bending</p>
+        <li class="text-sm text-yellow-200/70">Air Burst (1)</li>
+        <li class="text-sm text-yellow-200/70">Air Kick (1)</li>
+        <li class="text-sm text-yellow-200/70">Air Vortex (3)</li>
+        {{end}}
+        {{if eq .User.Class "waterBender"}}
+        <p class="my-1 text-sky-500 font-semibold">Water Bending</p>
+        <li class="text-sm text-sky-200/70">Water Whip (1)</li>
+        <li class="text-sm text-sky-200/70">Ice Spear (1)</li>
+        <li class="text-sm text-sky-200/70">Water Stream (3)</li>
+        {{end}}
+        {{if eq .User.Class "earthBender"}}
+        <p class="my-1 text-green-500 font-semibold">Earth Bending</p>
+        <li class="text-sm text-green-200/70">Earth Wave (1)</li>
+        <li class="text-sm text-green-200/70">Rock Bullets (1)</li>
+        <li class="text-sm text-green-200/70">Earth Launch (3)</li>
+        {{end}}
+        {{if eq .User.Class "fireBender"}}
+        <p class="my-1 text-red-500 font-semibold">Fire Bending</p>
+        <li class="text-sm text-red-200/70">Fire Kick (1)</li>
+        <li class="text-sm text-red-200/70">Flame Shot (1)</li>
+        <li class="text-sm text-red-200/70">Flame Blast (3)</li>
+        {{end}}
+
+        <p class="font-bold text-lg mt-4 mb-2">Items</p>
+        <li class="text-gray-500">Water Bottle</li>
+        <li class="text-gray-500">Boomerang</li>
+        <li class="text-gray-500">Staff</li>
+
+        {{if .User.IsGameMaster}}
+        <div id="game-master-actions-combat" class="mt-4 mb-2 border-t">
+            <p class="font-bold text-lg text-pink-500">Game Master</p>
+            <li class="text-pink-200 cursor-pointer" value="full" hx-post="/combat/user/heal">Heal User</li>
+            <li class="text-pink-200 cursor-pointer" value="full" hx-post="/combat/enemy/heal">Heal Enemy</li>
+        </div>
+        {{end}}
+    </ul>
+</nav>
+{{end}}

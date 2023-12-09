@@ -1,0 +1,10 @@
+{{define "combat-user"}}
+<div id="combat-user" class="flex items-center justify-center" hx-get="/user/health" hx-trigger="user-change from:body">
+    <div class="flex flex-col items-center">
+        <img src="../static/avatar-aang.jpg" alt="{{.User.Name}}" class="rounded-full mr-4"
+            style="width:150px; height:150px">
+        <p class="font-bold text-1xl">{{.User.Name}}</p>
+        {{template "healthbar" .User}}
+    </div>
+</div>
+{{end}}

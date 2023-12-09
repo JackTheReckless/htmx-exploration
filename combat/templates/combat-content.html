@@ -1,0 +1,40 @@
+{{define "combat-content"}}
+<div id="combat-content">
+    {{if eq .Enemy.Health 0}}
+    <div>
+        <p class="text-3xl flex items-center justify-center text-green-500">You have defeated</p>
+        <p class="text-4xl mb-4 flex items-center justify-center text-green-500 font-bold">{{.Enemy.Name}}</p>
+    </div>
+    {{else}}
+    <div>
+        <p class="text-lg flex items-center justify-center">You have encountered</p>
+        <p class="text-lg flex items-center justify-center font-bold">{{.Enemy.Name}}</p>
+        <p class="text-lg flex items-center justify-center">who lunges at you with</p>
+        <p class="text-lg flex items-center justify-center font-bold">{{.Enemy.Weapon}}</p>
+    </div>
+    {{end}}
+    <div id="active-combat" class="grid grid-cols-3 gap-2 mt-3">
+        <div class="col-span-1">
+            {{template "combat-enemy" .}}
+        </div>
+        <div class="col-span-1 flex items-center justify-center">
+            <div class="flex items-center justify-center text-white font-bold text-5xl">
+                <div class="px-4 py-2">VS</div>
+            </div>
+        </div>
+        <div class="col-span-1">
+            {{template "combat-user" .}}
+        </div>
+    </div>
+    {{if eq .Enemy.Health 0}}
+    <p class="text-3xl mt-4 flex items-center justify-center text-amber-500">You have been awarded</p>
+    <p class="text-4xl flex items-center justify-center text-amber-500 font-bold">{{.User.AwardedEXP}} experience</p>
+
+    {{end}}
+    {{if gt .Enemy.Health 0}}
+    <div id="combat-log">
+        {{template "combat-log" .}}
+    </div>
+    {{end}}
+</div>
+{{end}}

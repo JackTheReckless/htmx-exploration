@@ -1,0 +1,10 @@
+{{define "combat-enemy"}}
+<div id="combat-enemy" class="flex items-center justify-center" hx-get="/enemy/health"
+    hx-trigger="enemy-change from:body">
+    <div class="flex flex-col items-center">
+        <img src="{{.Enemy.Image}}" alt="{{.Enemy.Name}}" class="rounded-full mr-4" style="width:150px; height:150px">
+        <p class="font-bold text-1xl">{{.Enemy.Name}}</p>
+        {{template "healthbar" .Enemy}}
+    </div>
+</div>
+{{end}}
